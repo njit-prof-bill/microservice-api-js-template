@@ -38,6 +38,7 @@ The goal of this assignment is to help you understand how a RESTful API works on
 
 6. **Submit a Pull Request (PR)**:
    - After pushing your changes to the new branch, go to GitHub and create a **pull request** comparing your `my-feature-branch` with the `main` branch of your forked repository.
+   - Merge the pull request.
    - This allows the teacher to review your code and GitHub Actions to run the tests automatically.
 ---
 ### Full Instructions:
@@ -132,7 +133,9 @@ d. **DELETE /users/:id**: Delete a user by their `id`.
      git commit -m "Completed REST API microservice"
      git push origin main
      ```
-   - Submit the link to your repository on GitHub Classroom.
+   - Create a pull request that compares your branch to the main branch.
+   - Merge the pull request. Merging the Pull Request submits your assignment.
+
 
 ### Additional Notes:
 - Make sure your API follows RESTful principles (correct HTTP methods and status codes).
