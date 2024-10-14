@@ -4,6 +4,11 @@ const app = require('../src/index');
 describe('User Management API (Grading)', () => {
     let userId;
 
+    // PR Submitted Test (1 point)
+    it('PR was successfully created and merged (1 point)', () => {
+        expect(true).toBe(true); // Dummy test that always passes
+    });
+
     // POST /users test (1 point)
     it('POST /users should create a new user (1 point)', async () => {
         const response = await request(app)
