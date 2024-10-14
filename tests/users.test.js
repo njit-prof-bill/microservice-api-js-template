@@ -1,11 +1,11 @@
 const request = require('supertest');
-const express = require('express');
-const app = require('../src/index'); // Assuming your app is in src/index.js
+const app = require('../src/index');
 
-describe('User Management API', () => {
+describe('User Management API (Grading)', () => {
     let userId;
 
-    it('POST /users should create a new user', async () => {
+    // POST /users test (1 point)
+    it('POST /users should create a new user (1 point)', async () => {
         const response = await request(app)
             .post('/users')
             .send({
@@ -18,10 +18,11 @@ describe('User Management API', () => {
         expect(response.body.name).toBe('John Doe');
         expect(response.body.email).toBe('john@example.com');
 
-        userId = response.body.id;
+        userId = response.body.id; // Store the ID for future tests
     });
 
-    it('GET /users/:id should return user details', async () => {
+    // GET /users/:id test (1 point)
+    it('GET /users/:id should return user details (1 point)', async () => {
         const response = await request(app)
             .get(`/users/${userId}`)
             .expect(200);
@@ -31,7 +32,8 @@ describe('User Management API', () => {
         expect(response.body.email).toBe('john@example.com');
     });
 
-    it('PUT /users/:id should update user details', async () => {
+    // PUT /users/:id test (1 point)
+    it('PUT /users/:id should update user details (1 point)', async () => {
         const response = await request(app)
             .put(`/users/${userId}`)
             .send({
@@ -44,7 +46,8 @@ describe('User Management API', () => {
         expect(response.body.email).toBe('jane@example.com');
     });
 
-    it('DELETE /users/:id should delete the user', async () => {
+    // DELETE /users/:id test (1 point)
+    it('DELETE /users/:id should delete the user (1 point)', async () => {
         await request(app)
             .delete(`/users/${userId}`)
             .expect(204);
