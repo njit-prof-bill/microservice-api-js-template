@@ -5,12 +5,22 @@ const port = 3000;
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-// Sample route
+// **************************************************************
+// Put your implementation here
+// If necessary to add imports, please do so in the section above
+
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
+// Do not touch the code below this comment
+// **************************************************************
+
+// Start the server (only if not in test mode)
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => {
+        console.log(`Server running at http://localhost:${port}`);
+    });
+}
+
+module.exports = app; // Export the app for testing
