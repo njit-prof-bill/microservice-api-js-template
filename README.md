@@ -14,7 +14,9 @@ Follow these steps to complete the assignment:
 4. **Checkout your branch** and start working on your solution.
 5. **Code and test your implementation** using the instructions below.
 6. **Commit and push your changes** to your branch.
-7. **Merge your branch into the `main` branch of your fork**.
+7. **Merge your branch into the `main` branch of your fork**:
+   - **Option 1 (Direct Merge)**: Checkout `main`, merge your branch, and push.
+   - **Option 2 (Pull Request - Optional)**: Open a pull request in your fork and merge it.
 8. **Submit the URL to your forked repository** to the professor.
 
 Your repository should contain **all necessary code and test results** when you submit it.
