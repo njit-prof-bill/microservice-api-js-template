@@ -1,37 +1,23 @@
-## Assignment: Build a Simple REST API Microservice
+# Assignment: Build a Simple REST API Microservice
 
-### Objective:
-The goal of this assignment is to help you understand how a RESTful API works on the server-side using Node.js and Express. You will implement a microservice that allows users to be created, retrieved, updated, and deleted. The user data will be stored in memory (no database required).
+## **Objective**
+The goal of this assignment is to help you understand how a RESTful API works on the server-side using **Node.js** and **Express**. You will implement a microservice that allows users to be created, retrieved, updated, and deleted. The user data will be stored in memory (no database required).
 
 ---
 
-### Summary Steps for Students:
+## **Workflow & Submission**
+Follow these steps to complete the assignment:
 
-1. **Fork the Repository**:
-   - After accepting the assignment, fork the template repository.
-   - Clone your forked repository to your local machine:
-     ```bash
-     git clone https://github.com/your-username/assignment-repository.git
-     ```
+1. **Fork the professor's repository**.
+2. **Create a branch** in your forked repository.
+3. **Clone your fork** to your local device.
+4. **Checkout your branch** and start working on your solution.
+5. **Code and test your implementation** using the instructions below.
+6. **Commit and push your changes** to your branch.
+7. **Merge your branch into the `main` branch of your fork**.
+8. **Submit the URL to your forked repository** to the professor.
 
-2. **Create a Branch**:
-   - Before you make any changes, create a new branch to work on.
-     ```bash
-     git checkout -b my-feature-branch
-     ```
-
-3. **Implement the API Endpoints**:
-   - Implement the API as described below.
-   - Make sure your endpoints return the correct **HTTP status codes** and **JSON responses**.
-
-4. **Test Your Code**:
-   - Run the tests locally:
-     ```bash
-     npm test
-     ```
-
-5. **Push Your Changes & Submit**:
-   - Push your changes and submit your assignment by creating a pull request.
+Your repository should contain **all necessary code and test results** when you submit it.
 
 ---
 
@@ -40,14 +26,14 @@ Your task is to implement the following API endpoints in `src/index.js`:
 
 ### **1. Create a User**
 #### **POST `/users`**
-**Request Body:**
+##### **Request Body:**
 ```json
 {
   "name": "John Doe",
   "email": "john@example.com"
 }
 ```
-**Response (201 Created):**
+##### **Response (201 Created):**
 ```json
 {
   "id": "a1b2c3d4",
@@ -55,18 +41,18 @@ Your task is to implement the following API endpoints in `src/index.js`:
   "email": "john@example.com"
 }
 ```
-- The `id` must be **a unique string** (you can use `uuid` or similar).
+- The `id` must be **a unique string** (e.g., use `uuid`).
 - Returns `400 Bad Request` if `name` or `email` is missing.
 
 ---
 
 ### **2. Retrieve a User**
 #### **GET `/users/:id`**
-**Example Request:**
-```bash
+##### **Example Request:**
+```
 GET /users/a1b2c3d4
 ```
-**Response (200 OK):**
+##### **Response (200 OK):**
 ```json
 {
   "id": "a1b2c3d4",
@@ -80,14 +66,14 @@ GET /users/a1b2c3d4
 
 ### **3. Update a User**
 #### **PUT `/users/:id`**
-**Request Body:**
+##### **Request Body:**
 ```json
 {
   "name": "John Updated",
   "email": "john.updated@example.com"
 }
 ```
-**Response (200 OK):**
+##### **Response (200 OK):**
 ```json
 {
   "id": "a1b2c3d4",
@@ -102,35 +88,69 @@ GET /users/a1b2c3d4
 
 ### **4. Delete a User**
 #### **DELETE `/users/:id`**
-**Example Request:**
-```bash
+##### **Example Request:**
+```
 DELETE /users/a1b2c3d4
 ```
-**Response (204 No Content)**
+##### **Response (204 No Content)**
 - If the user is found and deleted, **no response body** is returned.
 - Returns `404 Not Found` if the user ID does not exist.
 
 ---
 
-## **Additional Notes**
+## **Implementation Requirements**
 - Use an **in-memory array** to store users.
 - Follow RESTful conventions for **HTTP methods and status codes**.
 - Handle errors properly (`400`, `404`, etc.).
-- Your implementation should **pass all tests** in `user.test.js`.
-- The GitHub Actions workflow will run **hidden tests** when you push your code.
+- Ensure all API responses are **structured correctly** as shown above.
 
-### **Testing Your API**
-You can manually test your API using **Postman** or **cURL**.
+---
 
-Example:
+## **Testing Your API**
+You are required to **test your API manually** and **run the provided automated tests**.
+
+### **Manual Testing**
+Use **Postman**, **cURL**, or any HTTP client to test your API.
+
+#### **Example cURL Request:**
 ```bash
 curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"name":"Alice","email":"alice@example.com"}'
 ```
 
+### **Automated Testing**
+- The repository includes **automated tests** using **Jest** and **Supertest**.
+- Run the tests with:
+  ```bash
+  npm test
+  ```
+- Ensure **all tests pass** before submitting your assignment.
+
 ---
 
-### **Submission**
-- Push your changes to your GitHub fork.
-- Submit the repository URL via the designated submission form.
+## **GitHub Actions & Hidden Tests**
+- Your repository is configured with **GitHub Actions** to **automatically test your code when you push changes**.
+- **Hidden test cases** will only run when your code is submitted (pushed to GitHub).
+- Locally, you will only see public tests. If your submission fails hidden tests, you will need to debug based on test logs.
+
+---
+
+## **Submission Instructions**
+- Ensure your final implementation is **merged into the `main` branch of your fork**.
+- Submit your **GitHub repository URL** via the designated submission form.
+
+Your repository should include:
+✅ All required API endpoints
+✅ Passing public tests (`npm test` runs locally)
+✅ Clean, well-structured code
+
+---
+
+## **Additional Notes**
+- Follow **good coding practices** (descriptive variable names, proper indentation, and clear structure).
+- API should **use correct HTTP methods and status codes**.
+- Your implementation **must not modify the test files (`user.test.js` and `.github/workflows/test.yml`)**.
+- You are allowed to **add files and folders** if needed.
+
+🚀 **Good luck!**
 
 ---
