@@ -7,18 +7,19 @@ The goal of this assignment is to help you understand how a RESTful API works on
 ## **📌 Getting Started: Create Your Repository from the Template**
 Instead of forking, you will **create a new repository using this template**.
 
+**Important** You will need NodeJS for this assignment. Be sure to install it if you have not already.
+
 ### ✅ **Follow These Steps**
-1. Go to the **original assignment repository** on GitHub.
+1. Go to the **original assignment repository** on GitHub https://github.com/njit-prof-bill/microservice-api-js-template.
 2. Click the **"Use this template"** button (green button at the top of the page).
 3. Enter a **name for your new repository** (e.g., `rest-api-assignment`).
-4. **Make sure the repository is private** unless instructed otherwise.
+4. **Make sure the new repository is public** unless instructed otherwise.
 5. Click **"Create repository from template"**.
-6. Clone your new repository:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/rest-api-assignment.git
-   cd rest-api-assignment
-   ```
-7. ✅ GitHub Actions is **already enabled**, and your tests will run automatically when you push changes.
+6. Clone your new repository to your device.
+7. Run `npm install` in your project folder.
+8. Implement the API by following the specifications below. Use JavaScript on NodeJS.
+9. Test your code; when done push your changes. Be sure you have merged to main.
+10. ✅ GitHub Actions is **already enabled**, and your tests will run automatically when you push changes.
 
 ---
 
