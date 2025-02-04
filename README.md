@@ -1,145 +1,169 @@
-## Assignment: Build a Simple REST API Microservice
+## **🚀 Assignment: Build a Simple REST API Microservice**
+### **Objective**
+The goal of this assignment is to help you understand how a RESTful API works on the server-side using **Node.js** and **Express**. You will implement a microservice that allows users to be **created, retrieved, updated, and deleted**. The user data will be stored in memory (**no database required**).
 
-### Objective:
-The goal of this assignment is to help you understand how a RESTful API works on the server-side using Node.js and Express. You will implement a microservice that allows users to be created, retrieved, updated, and deleted. The user data will be stored in memory (no database required).
-
-### Summary Steps for Students:
-
-1. **Fork the Repository**:
-   - After accepting the assignment via GitHub Classroom, you'll receive a forked copy of the repository.
-   - Clone your forked repository to your local machine:
-     ```bash
-     git clone https://github.com/your-username/assignment-repository.git
-     ```
-
-2. **Create a Branch**:
-   - Before you make any changes, create a new branch to work on. This allows you to submit a pull request later.
-     ```bash
-     git checkout -b my-feature-branch
-     ```
-
-3. **Make Changes**:
-   - Implement the API endpoints as described in the assignment instructions.
-   - Run the server and make sure everything works locally.
-
-4. **Test Your Code**:
-   - Run the tests to ensure everything is working correctly:
-     ```bash
-     npm test
-     ```
-
-5. **Push Your Changes**:
-   - Once you’ve made the necessary changes and tested your code, stage, commit, and push your changes to your new branch:
-     ```bash
-     git add .
-     git commit -m "Implemented API endpoints"
-     git push origin my-feature-branch
-     ```
-
-6. **Submit a Pull Request (PR)**:
-   - After pushing your changes to the new branch, go to GitHub and create a **pull request** comparing your `my-feature-branch` with the `main` branch of your forked repository.
-   - Merge the pull request.
-   - This allows the teacher to review your code and GitHub Actions to run the tests automatically.
 ---
-### Full Instructions:
 
-### 1. **Fork the Repository:**
-   - Go to the URL here to get started: https://classroom.github.com/a/c1gHGTav.
-   - Accept the assignment (click the Accept Assignment button).
-   - Clone the forked repository to your local development environment:
-     ```bash
-     git clone https://github.com/your-username/your-repository-name.git
-     ```
-     
-### 2. **Create a Branch**:
-   - Before you make any changes, create a new branch to work on. This allows you to submit a pull request later.
-     ```bash
-     git checkout -b my-feature-branch
-     ```
+## **📌 Getting Started: Create Your Repository from the Template**
+Instead of forking, you will **create a new repository using this template**.
 
-### 3. **Install Dependencies:**
-   - Navigate into the project directory and install the necessary dependencies:
-     ```bash
-     cd your-repository-name
-     npm install
-     ```
+### ✅ **Follow These Steps**
+1. Go to the **original assignment repository** on GitHub.
+2. Click the **"Use this template"** button (green button at the top of the page).
+3. Enter a **name for your new repository** (e.g., `rest-api-assignment`).
+4. **Make sure the repository is private** unless instructed otherwise.
+5. Click **"Create repository from template"**.
+6. Clone your new repository:
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/rest-api-assignment.git
+   cd rest-api-assignment
+   ```
+7. ✅ GitHub Actions is **already enabled**, and your tests will run automatically when you push changes.
 
-### 4. **Run the Server:**
-   - The project uses **Express.js** for handling HTTP requests.
-   - To start the server locally, run the following command:
-     ```bash
-     npm start
-     ```
-   - The server will be running on `http://localhost:3000`. You can test the API by sending requests using a tool like **Postman** or **curl**.
+---
 
-### 5. **Implement the API Endpoints:**
+## **📜 API Specification**
+Your task is to implement the following API endpoints in `src/index.js`:
 
-You will implement the following API endpoints in `src/index.js`:
+### **1. Create a User**
+#### **POST `/users`**
+##### **Request Body:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
+##### **Response (201 Created):**
+```json
+{
+  "id": "a1b2c3d4",
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
+- The `id` must be **a unique string** (e.g., use `uuid`).
+- Returns `400 Bad Request` if `name` or `email` is missing.
 
-a. **POST /users**: Create a new user.
-   - The request body should contain the user’s name and email.
-   - Example request body:
-     ```json
-     {
-       "name": "John Doe",
-       "email": "john@example.com"
-     }
-     ```
-   - Response: The created user with a unique `id`.
+---
 
-b. **GET /users/:id**: Retrieve user information by their `id`.
-   - The user’s `id` will be passed as a URL parameter.
-   - Response: The user details (id, name, email).
+### **2. Retrieve a User**
+#### **GET `/users/:id`**
+##### **Example Request:**
+```
+GET /users/a1b2c3d4
+```
+##### **Response (200 OK):**
+```json
+{
+  "id": "a1b2c3d4",
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
+- Returns `404 Not Found` if the user ID does not exist.
 
-c. **PUT /users/:id**: Update user information by their `id`.
-   - The request body should contain the new `name` and `email` for the user.
-   - Example request body:
-     ```json
-     {
-       "name": "Jane Doe",
-       "email": "jane@example.com"
-     }
-     ```
-   - Response: The updated user details.
+---
 
-d. **DELETE /users/:id**: Delete a user by their `id`.
-   - Response: 204 No Content.
+### **3. Update a User**
+#### **PUT `/users/:id`**
+##### **Request Body:**
+```json
+{
+  "name": "John Updated",
+  "email": "john.updated@example.com"
+}
+```
+##### **Response (200 OK):**
+```json
+{
+  "id": "a1b2c3d4",
+  "name": "John Updated",
+  "email": "john.updated@example.com"
+}
+```
+- Returns `404 Not Found` if the user ID does not exist.
+- Returns `400 Bad Request` if `name` or `email` is missing.
 
-**Important**. Only change the code in index.js where indicated by the comments. Also, do not change the user.test.js file or the test.yml file. You are, however, free to add files and folders as necessary to complete the assignment.
+---
 
-### 6. **In-Memory Storage:**
-   - For this assignment, store user data in memory using an array. Each user will have a unique `id`, `name`, and `email`.
+### **4. Delete a User**
+#### **DELETE `/users/:id`**
+##### **Example Request:**
+```
+DELETE /users/a1b2c3d4
+```
+##### **Response (204 No Content)**
+- If the user is found and deleted, **no response body** is returned.
+- Returns `404 Not Found` if the user ID does not exist.
 
-### 7. **Testing Your Code:**
-   - Test your API using **curl**, **Postman**, or any HTTP client of your choice.
-   - Example test cases to run:
-     - Create a new user using a POST request.
-     - Retrieve the user by their ID using a GET request.
-     - Update the user's information using a PUT request.
-     - Delete the user using a DELETE request.
+---
 
-### 8. **Run Automated Tests:**
-   - The repository includes automated tests using **Jest** and **Supertest**.
-   - You can run the tests by executing:
-     ```bash
-     npm test
-     ```
-   - Ensure that all tests pass before submitting your code.
+## **⚙️ Implementation Requirements**
+- Use an **in-memory array** to store users.
+- Follow RESTful conventions for **HTTP methods and status codes**.
+- Handle errors properly (`400`, `404`, etc.).
+- Ensure all API responses are **structured correctly** as shown above.
 
-### 9. **Submit Your Work:**
-   - Once you’ve implemented all the endpoints and verified that your tests pass, push your changes to your GitHub repository:
-     ```bash
-     git add .
-     git commit -m "Completed REST API microservice"
-     git push origin main
-     ```
-   - Create a pull request that compares your branch to the main branch.
-   - Merge the pull request. Merging the Pull Request submits your assignment.
+---
 
+## **🛠 Testing Your API**
+### **Manual Testing**
+Use **Postman**, **cURL**, or any HTTP client to test your API.
 
-### Additional Notes:
-- Make sure your API follows RESTful principles (correct HTTP methods and status codes).
-- Each endpoint should handle errors properly (e.g., return a `404` when the user is not found).
-- Follow good coding practices, including appropriate variable names, code structure, and comments where necessary.
+#### **Example cURL Request:**
+```bash
+curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"name":"Alice","email":"alice@example.com"}'
+```
 
-### Good luck!
+### **Automated Testing**
+- The repository includes **automated tests** using **Jest** and **Supertest**.
+- Run the tests with:
+  ```bash
+  npm test
+  ```
+- Ensure **all tests pass** before submitting your assignment.
+
+---
+
+## **📡 GitHub Actions & Hidden Tests**
+- Your repository is configured with **GitHub Actions** to **automatically test your code when you push changes**.
+- **Hidden test cases** will only run when your code is submitted (pushed to GitHub).
+- Locally, you will only see public tests. If your submission fails hidden tests, you will need to debug based on test logs.
+
+---
+
+## **📤 Submission Instructions**
+1. **Ensure your final implementation is pushed to the `main` branch of your repository**.
+2. **Submit your GitHub repository URL** via the designated submission form.
+
+Your repository should include:
+✅ All required API endpoints
+✅ Passing public tests (`npm test` runs locally)
+✅ Clean, well-structured code
+
+---
+
+## **📊 Grading Rubric (Total: 5 Points)**
+| **Criteria** | **Points** | **Description** |
+|-------------|-----------|----------------|
+| ✅ **POST /users works correctly** | **1 point** | API successfully creates users and returns correct responses. |
+| ✅ **GET /users/:id works correctly** | **1 point** | Retrieves a user by ID and returns correct responses. |
+| ✅ **PUT /users/:id works correctly** | **1 point** | Updates user details correctly and handles errors properly. |
+| ✅ **DELETE /users/:id works correctly** | **1 point** | Successfully deletes users and returns correct responses. |
+| ✅ **Error handling & correct HTTP status codes** | **1 point** | Returns proper status codes (`400`, `404`) when required. |
+
+### **🔹 Notes on Grading**
+- **Partial credit is possible** if an endpoint works but has minor issues.
+- **If an endpoint does not function at all**, the student will receive **zero points for that endpoint**.
+- **Tests must pass on GitHub Actions** for points to be awarded.
+
+---
+
+## **🔔 Additional Notes**
+- Follow **good coding practices** (descriptive variable names, proper indentation, and clear structure).
+- API should **use correct HTTP methods and status codes**.
+- Your implementation **must not modify the test files (`user.test.js` and `.github/workflows/test.yml`)**.
+- You are allowed to **add files and folders** if needed.
+
+🚀 **Good luck!** 🎯
