@@ -20,6 +20,7 @@ Instead of forking, you will **create a new repository using this template**.
 8. Implement the API by following the specifications below. Use JavaScript on NodeJS.
 9. Test your code; when done push your changes. Be sure you have merged to main.
 10. ✅ GitHub Actions is **already enabled**, and your tests will run automatically when you push changes.
+11. Post the URL to your repository on Canvas to submit your work.
 
 ---
 
