@@ -43,6 +43,18 @@ This lab focuses on:
 
 ---
 
+## Repository Setup
+
+One member of your team must:
+
+- Fork this repository into your team’s GitHub account
+- Add all teammates as collaborators on the fork
+- Ensure everyone can push branches and open pull requests
+
+All work for this lab must occur in your team’s fork.
+
+---
+
 ## The Codebase
 
 You are given a very small Express application with a single entry point: src/index.js
@@ -161,6 +173,21 @@ Negative signals:
 - Direct commits to `main`
 
 You are not given a point-based rubric for this lab.
+
+---
+
+## Submitting Your Work
+
+At the end of the lab, one team member must:
+
+- Post the URL of your team’s repository fork to the #labs Discord channel
+- Ensure the repository shows:
+  - Branches
+  - Pull requests
+  - Reviews
+  - Multiple contributors
+
+No additional write-up is required.
 
 ---
 
